@@ -3,20 +3,43 @@ import { motion } from 'framer-motion';
 import { Send, Calendar, MapPin, MessageSquare } from 'lucide-react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import emailjs from 'emailjs-com';
 
 const ResponseForm: React.FC = () => {
   const [message, setMessage] = useState('');
   const [date, setDate] = useState<Date | null>(null);
   const [location, setLocation] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
-  
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real application, you would send this data to a backend
-    console.log({ message, date, location });
-    // Show confirmation
-    setIsSubmitted(true);
-    // Reset form after 5 seconds
+
+    // Préparer les données à envoyer
+    const templateParams = {
+      message,
+      date: date ? date.toLocaleDateString('fr-FR') : 'Non spécifiée',
+      location: location || 'Non spécifié',
+    };
+
+    // Envoyer l'email via MailJS
+    emailjs
+      .send(
+        'service_bkbfs7c', // Remplacez par votre Service ID MailJS
+        'template_4jikehj', // Remplacez par votre Template ID MailJS
+        templateParams,
+        'MwgGhub-9ylALpwej' // Remplacez par votre User ID MailJS
+      )
+      .then(
+        (response) => {
+          console.log('Email envoyé avec succès !', response.status, response.text);
+          setIsSubmitted(true);
+        },
+        (error) => {
+          console.error('Erreur lors de l\'envoi de l\'email :', error);
+        }
+      );
+
+    // Réinitialiser le formulaire après 5 secondes
     setTimeout(() => {
       setMessage('');
       setDate(null);
@@ -24,7 +47,7 @@ const ResponseForm: React.FC = () => {
       setIsSubmitted(false);
     }, 5000);
   };
-  
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -38,7 +61,7 @@ const ResponseForm: React.FC = () => {
           Un espace pour partager tes pensées et sentiments
         </p>
       </div>
-      
+
       {isSubmitted ? (
         <motion.div 
           initial={{ scale: 0.9, opacity: 0 }}
@@ -69,7 +92,7 @@ const ResponseForm: React.FC = () => {
               className="cyber-input w-full resize-none"
             ></textarea>
           </div>
-          
+
           <div className="mb-6">
             <p className="block text-sm font-medium text-gray-300 mb-2">
               Souhaites-tu qu'on en discute en tête-à-tête ?
@@ -89,7 +112,7 @@ const ResponseForm: React.FC = () => {
                   minDate={new Date()}
                 />
               </div>
-              
+
               <div>
                 <label htmlFor="location" className="block text-sm font-medium text-gray-300 mb-2 flex items-center">
                   <MapPin className="w-4 h-4 mr-1 text-steel-blue" />
@@ -106,14 +129,14 @@ const ResponseForm: React.FC = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="text-right">
             <button type="submit" className="cyber-button flex items-center ml-auto">
               <Send className="w-4 h-4 mr-2" />
               Envoyer
             </button>
           </div>
-          
+
           <div className="mt-6 text-center text-xs text-gray-400">
             <p>
               Tes réponses resteront privées et ne seront visibles que par moi.
