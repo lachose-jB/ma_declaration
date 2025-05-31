@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-cyber-black text-white font-cyber overflow-x-hidden;
+}
+
+/* Custom neon text effect */
+.neon-text {
+  text-shadow: 0 0 5px #00f2ff, 0 0 10px #00f2ff, 0 0 20px #00f2ff;
+}
+
+.neon-text-purple {
+  text-shadow: 0 0 5px #9e00ff, 0 0 10px #9e00ff, 0 0 20px #9e00ff;
+}
+
+.neon-text-pink {
+  text-shadow: 0 0 5px #ff00f2, 0 0 10px #ff00f2, 0 0 20px #ff00f2;
+}
+
+/* Neon border effect */
+.neon-border {
+  box-shadow: 0 0 5px #00f2ff, 0 0 10px #00f2ff;
+  border: 1px solid #00f2ff;
+}
+
+.neon-border-purple {
+  box-shadow: 0 0 5px #9e00ff, 0 0 10px #9e00ff;
+  border: 1px solid #9e00ff;
+}
+
+.neon-border-pink {
+  box-shadow: 0 0 5px #ff00f2, 0 0 10px #ff00f2;
+  border: 1px solid #ff00f2;
+}
+
+/* Input styles */
+.cyber-input {
+  @apply bg-cyber-gray border-2 border-cyber-blue rounded px-4 py-2 outline-none focus:shadow-neon-blue transition-all duration-300;
+}
+
+/* Button styles */
+.cyber-button {
+  @apply bg-transparent border-2 border-cyber-blue text-cyber-blue rounded px-6 py-2 font-bold 
+  hover:bg-cyber-blue hover:text-cyber-black transition-all duration-300 hover:shadow-neon-blue;
+}
+
+.cyber-button-purple {
+  @apply bg-transparent border-2 border-cyber-purple text-cyber-purple rounded px-6 py-2 font-bold 
+  hover:bg-cyber-purple hover:text-cyber-black transition-all duration-300 hover:shadow-neon-purple;
+}
+
+.cyber-button-pink {
+  @apply bg-transparent border-2 border-cyber-pink text-cyber-pink rounded px-6 py-2 font-bold 
+  hover:bg-cyber-pink hover:text-cyber-black transition-all duration-300 hover:shadow-neon-pink;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-cyber-gray;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-cyber-blue rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-cyber-purple;
+}
+
+/* Date picker overrides */
+.react-datepicker {
+  @apply bg-cyber-dark border-cyber-blue !important;
+}
+
+.react-datepicker__header {
+  @apply bg-cyber-gray border-cyber-blue !important;
+}
+
+.react-datepicker__day-name, 
+.react-datepicker__day, 
+.react-datepicker__time-name {
+  @apply text-white !important;
+}
+
+.react-datepicker__day:hover, 
+.react-datepicker__month-text:hover, 
+.react-datepicker__quarter-text:hover, 
+.react-datepicker__year-text:hover {
+  @apply bg-cyber-blue text-cyber-black !important;
+}
+
+.react-datepicker__day--selected, 
+.react-datepicker__day--keyboard-selected {
+  @apply bg-cyber-blue text-cyber-black !important;
+}
