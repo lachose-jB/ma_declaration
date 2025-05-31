@@ -14,11 +14,17 @@ const ResponseForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Vérifier que tous les champs sont remplis
+    if (!message.trim() || !date || !location.trim()) {
+        alert('Veuillez remplir tous les champs avant de soumettre.');
+        return;
+    }
+
     // Préparer les données à envoyer
     const templateParams = {
       message,
-      date: date ? date.toLocaleDateString('fr-FR') : 'Non spécifiée',
-      location: location || 'Non spécifié',
+      date: date.toLocaleDateString('fr-FR'),
+      location,
     };
 
     // Envoyer l'email via MailJS
@@ -33,6 +39,11 @@ const ResponseForm: React.FC = () => {
         (response) => {
           console.log('Email envoyé avec succès !', response.status, response.text);
           setIsSubmitted(true);
+
+          // Fermer le site après l'envoi réussi
+          setTimeout(() => {
+            window.close();
+          }, 3000); // Attendre 3 secondes avant de fermer
         },
         (error) => {
           console.error('Erreur lors de l\'envoi de l\'email :', error);
