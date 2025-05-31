@@ -14,8 +14,8 @@ const Auth: React.FC<AuthProps> = ({ onAuthenticate }) => {
   const [denied, setDenied] = useState(false);
 
   // Remplacez par le nom réel de la personne
-  const targetFirstName = 'Lynda';
-  const targetLastName = 'Halzoun';
+  const targetFirstName = 'zeynep';
+  const targetLastName = 'cakir';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
