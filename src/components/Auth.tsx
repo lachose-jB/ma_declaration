@@ -13,7 +13,7 @@ const Auth: React.FC<AuthProps> = ({ onAuthenticate }) => {
   const [showAlert, setShowAlert] = useState(false);
   const [denied, setDenied] = useState(false);
 
-  // Replace with the actual name of the person
+  // Remplacez par le nom réel de la personne
   const targetFirstName = 'Lynda';
   const targetLastName = 'Halzoun';
 
@@ -54,8 +54,8 @@ const Auth: React.FC<AuthProps> = ({ onAuthenticate }) => {
       >
         <div className="text-center mb-8">
           <Lock className="w-12 h-12 text-cyber-blue mx-auto mb-4" />
-          <h1 className="text-3xl font-bold neon-text">Secure Access</h1>
-          <p className="text-gray-300 mt-2">Authentication required</p>
+          <h1 className="text-3xl font-bold neon-text">Accès Sécurisé</h1>
+          <p className="text-gray-300 mt-2">Authentification requise</p>
         </div>
 
         {denied ? (
@@ -65,15 +65,15 @@ const Auth: React.FC<AuthProps> = ({ onAuthenticate }) => {
             className="p-4 bg-cyber-dark border border-cyber-pink rounded-lg text-center"
           >
             <AlertTriangle className="w-12 h-12 text-cyber-pink mx-auto mb-2" />
-            <p className="text-xl font-bold neon-text-pink">Access Denied</p>
-            <p className="mt-2">You are not her queen 👑</p>
-            <p className="mt-2 text-sm text-gray-400">This page will close automatically...</p>
+            <p className="text-xl font-bold neon-text-pink">Accès Refusé</p>
+            <p className="mt-2">Tu n'es pas sa reine 👑</p>
+            <p className="mt-2 text-sm text-gray-400">Cette page se fermera automatiquement...</p>
           </motion.div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="firstName" className="block text-sm font-medium text-gray-300 mb-1">
-                First Name
+                Prénom
               </label>
               <div className="relative">
                 <input
@@ -89,7 +89,7 @@ const Auth: React.FC<AuthProps> = ({ onAuthenticate }) => {
             
             <div>
               <label htmlFor="lastName" className="block text-sm font-medium text-gray-300 mb-1">
-                Last Name
+                Nom
               </label>
               <div className="relative">
                 <input
@@ -108,18 +108,18 @@ const Auth: React.FC<AuthProps> = ({ onAuthenticate }) => {
               className="w-full cyber-button flex items-center justify-center"
             >
               <Fingerprint className="mr-2 h-5 w-5" />
-              Verify Identity
+              Vérifier l'identité
             </button>
             
             <div className="text-center text-xs text-gray-400 mt-4 flex items-center justify-center">
               <Shield className="h-4 w-4 mr-1" />
-              <span>Secure and private connection</span>
+              <span>Connexion sécurisée et privée</span>
             </div>
           </form>
         )}
       </motion.div>
 
-      {/* Authentication Alert */}
+      {/* Alerte d'authentification */}
       {showAlert && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/70 backdrop-blur-sm">
           <motion.div 
@@ -127,7 +127,7 @@ const Auth: React.FC<AuthProps> = ({ onAuthenticate }) => {
             animate={{ scale: 1, opacity: 1 }}
             className="bg-cyber-dark p-8 rounded-lg border border-cyber-blue max-w-md w-full"
           >
-            <h2 className="text-xl font-bold mb-4 neon-text">Important Message</h2>
+            <h2 className="text-xl font-bold mb-4 neon-text">Message Important</h2>
             <p className="mb-6 text-gray-300">
               Peu importe ce que tu t'apprêtes à lire, j'espère que cela ne changera rien entre nous. 
               Ton amitié est précieuse.
