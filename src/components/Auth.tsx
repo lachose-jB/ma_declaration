@@ -14,8 +14,8 @@ const Auth: React.FC<AuthProps> = ({ onAuthenticate }) => {
   const [denied, setDenied] = useState(false);
 
   // Remplacez par le nom réel de la personne
-  const targetFirstName = 'zeynep';
-  const targetLastName = 'cakir';
+  const targetFirstName = 'Kaleb';
+  const targetLastName = 'Toto';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -129,8 +129,8 @@ const Auth: React.FC<AuthProps> = ({ onAuthenticate }) => {
           >
             <h2 className="text-xl font-bold mb-4 neon-text">Message Important</h2>
             <p className="mb-6 text-gray-300">
-              Peu importe ce que tu t'apprêtes à lire, j'espère que cela ne changera rien entre nous. 
-              Ton amitié est précieuse.
+              Peu importe ce que tu t'apprêtes à lire, j'espère que cela ne changera rien entre nous car il est de la zone rouge. 
+              Ton amitié est précieuse et je veux pas changé ça.
             </p>
             <div className="flex space-x-4">
               <button 
